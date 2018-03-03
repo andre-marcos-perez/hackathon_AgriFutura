@@ -61,16 +61,54 @@
               <div class="col l8 s12">
                 <div class="card z-depth-5">
                   <div class="card-content" style="padding:0px">
-
                     <div id="map"></div>
                     <script>
                       function initMap() {
-                        var location = {lat: -11.897547, lng: -49.128725};
                         var map = new google.maps.Map(document.getElementById('map'), {
                           zoom: 16,
-                          center: location,
+                          center: {lat: -11.897547, lng: -49.128725},
                           mapTypeId: google.maps.MapTypeId.SATELLITE
                         });
+                        var polygonA = [
+                          {lat: -11.901271, lng: -49.128828},
+                          {lat: -11.900906, lng: -49.130245},
+                          {lat: -11.899902, lng: -49.131692},
+                          {lat: -11.898323, lng: -49.132447},
+                          {lat: -11.896782, lng: -49.132442},
+                          {lat: -11.895069, lng: -49.131480},
+                          {lat: -11.894240, lng: -49.130203},
+                          {lat: -11.893976, lng: -49.128918},
+                          {lat: -11.901271, lng: -49.128828}
+                        ];
+                        var areaA = new google.maps.Polygon({
+                          paths: polygonA,
+                          strokeColor: '#FF0000',
+                          strokeOpacity: 0.8,
+                          strokeWeight: 2,
+                          fillColor: '#FF0000',
+                          fillOpacity: 0.35
+                        });
+                        areaA.setMap(map);
+                        var polygonB = [
+                          {lat: -11.901271, lng: -49.128828},
+                          {lat: -11.900906, lng: -49.127245},
+                          {lat: -11.899991, lng: -49.126046},
+                          {lat: -11.898713, lng: -49.125260},
+                          {lat: -11.896626, lng: -49.125244},
+                          {lat: -11.894972, lng: -49.126290},
+                          {lat: -11.894157, lng: -49.127686},
+                          {lat: -11.893976, lng: -49.128918},
+                          {lat: -11.901271, lng: -49.128828}
+                        ];
+                        var areaB = new google.maps.Polygon({
+                          paths: polygonB,
+                          strokeColor: '#FFFF00',
+                          strokeOpacity: 0.8,
+                          strokeWeight: 2,
+                          fillColor: '#FFFF00',
+                          fillOpacity: 0.35
+                        });
+                        areaB.setMap(map);
                       }
                     </script>
                     <script async defer
