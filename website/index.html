@@ -8,78 +8,133 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="javascript" href="static/javascript/index.js">
+</style>
   </head>
   <body>
     <header>
-
-
       <div class="navbar-fixed">
         <nav class="">
           <div class="nav-wrapper container">
-            <a href="#" class="brand-logo center"><b>Dashboard</b></a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><div class="divider"></div></li>
-              <li>
-                <a href="#"><b>Link 1</b></a>
-              </li>
-              <li><div class="divider"></div></li>
-              <li>
-                <a href="#"><b>Link 2</b></a>
-              </li>
-              <li><div class="divider"></div></li>
-            </ul>
+            <span href="#" class="brand-logo center"><b>Dashboard</b></span>
           </div>
         </nav>
       </div>
-      <ul class="side-nav" id="mobile-demo">
-        <li>
-          <div class="row">
-            <div class="col s12">
-              <div class="card accent-4">
-                <div class="card-content">
-                  <span class="card-title center"><b>Dashboard</b></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li><div class="divider"></div></li>
-        <li>
-          <a href="#"><b>Link 1</b></a>
-        </li>
-        <li><div class="divider"></div></li>
-        <li>
-          <a href="#"><b>Link 2</b></a>
-        </li>
-        <li><div class="divider"></div></li>
-      </ul>
-    </header>
-
-
-
-
     </header>
     <main>
       <div class="container">
         <div class="row">
-          <div class="col l6 s12">
-            <div class="card teal">
-              <div class="card-content">
+          <div class="col s12">
+            <div class="row">
+              <div class="col l4 s12">
+                <div class="card z-depth-5">
+                  <div class="card-content">
 
+                  </div>
+                  <div class="card-action">
+
+                  </div>
+                </div>
               </div>
-              <div class="card-action">
+              <div class="col l4 s12">
+                <div class="card z-depth-5">
+                  <div class="card-content">
 
+                  </div>
+                  <div class="card-action">
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-5">
+                  <div class="card-content">
+
+                  </div>
+                  <div class="card-action">
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col l6 s12">
-            <div class="card teal">
-              <div class="card-content">
+          <div class="col s12">
+            <div class="row">
+              <div class="col l8 s12">
+                <div class="card z-depth-5">
+                  <div class="card-content" style="padding:0px">
 
+                    <div id="map"></div>
+                    <script>
+                      function initMap() {
+                        var location = {lat: -11.897547, lng: -49.128725};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          zoom: 16,
+                          center: location,
+                          mapTypeId: google.maps.MapTypeId.SATELLITE
+                        });
+                      }
+                    </script>
+                    <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCApdV04VZ8C7OK99XoFBlFl11zGtRvF04&callback=initMap">
+                    </script>
+                  </div>
+                </div>
               </div>
-              <div class="card-action">
+              <div class="col l4 s12">
+                <div class="row">
+                  <div class="col s12">
+                    <div class="card z-depth-5">
+                      <div class="card-content">
 
+                      </div>
+                      <div class="card-action">
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s12">
+                    <div class="card z-depth-5">
+                      <div class="card-content">
+
+                      </div>
+                      <div class="card-action">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class="row">
+              <div class="col l4 s12">
+                <div class="card z-depth-5">
+                  <div class="card-content">
+
+                  </div>
+                  <div class="card-action">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-5">
+                  <div class="card-content">
+
+                  </div>
+                  <div class="card-action">
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-5">
+                  <div class="card-content">
+
+                  </div>
+                  <div class="card-action">
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
