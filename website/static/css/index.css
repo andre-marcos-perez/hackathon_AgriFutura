@@ -26,3 +26,8 @@ main {
   height: 400px;
   background-color: grey;
 }
+
+#sidemap {
+  padding-bottom : 10px;
+  padding-top : 10px;
+}

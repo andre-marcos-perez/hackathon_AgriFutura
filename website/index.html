@@ -28,23 +28,39 @@
           <div class="col s12">
             <div class="row">
               <div class="col l4 s12">
-                <div class="card z-depth-2 hoverable">
-                  <div class="card-content">
-                    <b>Umidade do solo</b>
-                    <div class="divider"></div>
-                    <h3>37.31%</h3>
-                    <b>Umidade relativa do ar</b>
-                    <div class="divider"></div>
-                    <h3>12.81%</h3>
-                    <b>Temperatura ambiente</b>
-                    <div class="divider"></div>
-                    <h3>27.53 °C</h3>
+                <div class="row">
+                  <div class="col s12">
+                    <div class="card z-depth-2 hoverable">
+                      <div class="card-content" id="sidemap">
+                        <b>Umidade do solo</b>
+                        <div class="divider"></div>
+                        <h3>37.31%</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s12">
+                    <div class="card z-depth-2 hoverable">
+                      <div class="card-content" id="sidemap">
+                        <b>Umidade relativa do ar</b>
+                        <div class="divider"></div>
+                        <h3>12.81%</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s12">
+                    <div class="card z-depth-2 hoverable">
+                      <div class="card-content" id="sidemap">
+                        <b>Temperatura ambiente</b>
+                        <div class="divider"></div>
+                        <h3>27.53 °C</h3>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="col l8 s12">
                 <div class="card z-depth-2 hoverable">
-                  <div class="card-content" style="padding:0px">
+                  <div class="card-content" style="padding-bottom:10px;">
                     <div id="map"></div>
                     <script>
                       function initMap() {
