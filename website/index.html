@@ -36,9 +36,11 @@
                   <div class="col s12">
                     <div class="card z-depth-2 hoverable">
                       <div class="card-content" id="sidemap">
-                        <b>Umidade do solo</b>
+                        <b>Quantidade de água no solo</b>
                         <div class="divider"></div>
-                        <h3>37.31%</h3>
+                        <div class="center">
+                            <h3 id="us1"></h3>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -47,7 +49,9 @@
                       <div class="card-content" id="sidemap">
                         <b>Umidade relativa do ar</b>
                         <div class="divider"></div>
-                        <h3>12.81%</h3>
+                        <div class="center">
+                            <h3 id="ua1"></h3>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -56,7 +60,9 @@
                       <div class="card-content" id="sidemap">
                         <b>Temperatura ambiente</b>
                         <div class="divider"></div>
-                        <h3>27.53 °C</h3>
+                        <div class="center">
+                            <h3 id="ta1"></h3>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -106,10 +112,10 @@
                         ];
                         var areaB = new google.maps.Polygon({
                           paths: polygonB,
-                          strokeColor: '#FFFF00',
+                          strokeColor: '#FF9800',
                           strokeOpacity: 0.8,
                           strokeWeight: 2,
-                          fillColor: '#FFFF00',
+                          fillColor: '#FF9800',
                           fillOpacity: 0.35
                         });
                         areaB.setMap(map);
@@ -127,21 +133,83 @@
             <div class="col l4 s12">
               <div class="card z-depth-2 hoverable">
                 <div class="card-content" style="padding:0px">
-                  <canvas id="soil_humidity" width="400" height="400"></canvas>
+                  <canvas id="soil_umidity_a" width="400" height="400"></canvas>
                 </div>
               </div>
             </div>
             <div class="col l4 s12">
               <div class="card z-depth-2 hoverable">
                 <div class="card-content" style="padding:0px">
-                  <canvas id="air_humidity" width="400" height="400"></canvas>
+                  <canvas id="air_umidity_a" width="400" height="400"></canvas>
                 </div>
               </div>
             </div>
             <div class="col l4 s12">
               <div class="card z-depth-2 hoverable">
                 <div class="card-content" style="padding:0px">
-                  <canvas id="air_temperature" width="400" height="400"></canvas>
+                  <canvas id="air_temperature_a" width="400" height="400"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class="row">
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" id="sidemap">
+                    <b>Quantidade de água no solo</b>
+                    <div class="divider"></div>
+                    <div class="center">
+                        <h3 id="us2"></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" id="sidemap">
+                    <b>Umidade relativa do ar</b>
+                    <div class="divider"></div>
+                    <div class="center">
+                        <h3 id="ua2"></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" id="sidemap">
+                    <b>Temperatura ambiente</b>
+                    <div class="divider"></div>
+                    <div class="center">
+                        <h3 id="ta2"></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <div class="col l4 s12">
+                  <div class="card z-depth-2 hoverable">
+                    <div class="card-content" style="padding:0px">
+                      <canvas id="soil_umidity_b" width="400" height="400"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="col l4 s12">
+                  <div class="card z-depth-2 hoverable">
+                    <div class="card-content" style="padding:0px">
+                      <canvas id="air_umidity_b" width="400" height="400"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="col l4 s12">
+                  <div class="card z-depth-2 hoverable">
+                    <div class="card-content" style="padding:0px">
+                      <canvas id="air_temperature_b" width="400" height="400"></canvas>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -185,146 +253,59 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="static/javascript/sensor_a.js"></script>
+    <script type="text/javascript" src="static/javascript/sensor_b.js"></script>
     <script>
       $(document).ready(function(){
         $(".button-collapse").sideNav();
       });
-  </script>
-  <script>
-    var ctx = document.getElementById("soil_humidity").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: [ "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00",
-                    "7:00", "8:00", "9:00","10:00","11:00","12:00","13:00",
-                   "14:00","15:00","16:00","17:00","18:00","19:00","20:00",
-                   "21:00","22:00","23:00","24:00"],
-            datasets: [{
-                  label: 'Umidade do solo',
-                data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3, 12],
-                backgroundColor: [
-                    'rgba(255, 152, 0, 0.5)'
-                ],
-                borderColor: [
-                    'rgba(255, 152, 0, 0.9)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-              yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Umidade (%)'
-                  },
-                  ticks: {
-                    beginAtZero:true
-                  }
-              }],
-                xAxes: [{
-                  scaleLabel: {
-                      display: true,
-                      labelString: 'Tempo (h)'
-                    },
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-            }
-        }
-    });
     </script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script>
-      var ctx = document.getElementById("air_humidity").getContext('2d');
-      var myChart = new Chart(ctx, {
-          type: 'line',
-          xAxisID: 'Tempo (h)',
-          data: {
-            labels: [ "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00",
-                      "7:00", "8:00", "9:00","10:00","11:00","12:00","13:00",
-                     "14:00","15:00","16:00","17:00","18:00","19:00","20:00",
-                     "21:00","22:00","23:00","24:00"],
-              datasets: [{
-                  label: 'Umidade ambiente',
-                  data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3, 12],
-                  backgroundColor: [
-                      'rgba(255, 152, 0, 0.5)'
-                  ],
-                  borderColor: [
-                      'rgba(255, 152, 0, 0.9)'
-                  ],
-                  borderWidth: 1
-              }]
-          },
-          options: {
-              scales: {
-                  yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Umidade (%)'
-                      },
-                      ticks: {
-                        beginAtZero:true
-                      }
-                  }],
-                  xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Tempo (h)'
-                      },
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-              }
-          }
+      var config = {
+        apiKey: "AIzaSyCgdPmCY3Xk0KesTngcyzXMme7PtPUU3h0",
+        authDomain: "agrifutura-99921.firebaseapp.com",
+        databaseURL: "https://agrifutura-99921.firebaseio.com",
+        projectId: "agrifutura-99921",
+        storageBucket: "agrifutura-99921.appspot.com",
+        messagingSenderId: "1026468338204"
+      };
+      firebase.initializeApp(config);
+      var db = firebase.database();
+      db.ref("/zona1").on("value",function(snapshot) {
+        $('#ta1').text(snapshot.val().temperature + ' °C');
+        $('#ua1').text(snapshot.val().humidity + ' %');
+
+        if (snapshot.val().hidrometer < 20) {
+
+          $('#us1').text('seco');
+
+        } else if(snapshot.val().hidrometer < 50) {
+
+          $('#us1').text('úmido');
+        }
+        else{
+
+          $('#us1').text('molhado');
+        }
       });
-      </script>
-      <script>
-        var ctx = document.getElementById("air_temperature").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [ "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00",
-                          "7:00", "8:00", "9:00","10:00","11:00","12:00","13:00",
-                         "14:00","15:00","16:00","17:00","18:00","19:00","20:00",
-                         "21:00","22:00","23:00","24:00"],
-                datasets: [{
-                    label: 'Temperatura ambiente',
-                    data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3, 12],
-                    backgroundColor: [
-                        'rgba(255, 152, 0, 0.5)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 152, 0, 0.9)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                      scaleLabel: {
-                          display: true,
-                          labelString: 'Temperatura (°C)'
-                        },
-                      ticks: {
-                          beginAtZero:true
-                      }
-                  }],
-                  xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Tempo (h)'
-                      },
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-                }
-            }
-        });
-      </script>
+      db.ref("/zona2").on("value",function(snapshot) {
+        $('#ta2').text(snapshot.val().temperature + ' °C');
+        $('#ua2').text(snapshot.val().humidity + ' %');
+
+        if (snapshot.val().hidrometer < 20) {
+
+          $('#us2').text('seco');
+
+        } else if(snapshot.val().hidrometer < 50) {
+
+          $('#us2').text('úmido');
+        }
+        else{
+
+          $('#us2').text('molhado');
+        }
+      });
+    </script>
   </body>
 </html>
