@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa"/>
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="javascript" href="static/javascript/index.js">
 </style>
   </head>
   <body>
     <header>
-      <div class="navbar-fixed">
-        <nav class="">
+      <div class="navbar">
+        <nav style="background-color: #455A64">
           <div class="nav-wrapper container">
             <span href="#" class="brand-logo center"><b>Dashboard</b></span>
           </div>
@@ -22,44 +23,27 @@
     </header>
     <main>
       <div class="container">
+
         <div class="row">
           <div class="col s12">
             <div class="row">
               <div class="col l4 s12">
-                <div class="card z-depth-5">
+                <div class="card z-depth-2 hoverable">
                   <div class="card-content">
-
-                  </div>
-                  <div class="card-action">
-
+                    <b>Umidade do solo</b>
+                    <div class="divider"></div>
+                    <h3>37.31%</h3>
+                    <b>Umidade relativa do ar</b>
+                    <div class="divider"></div>
+                    <h3>12.81%</h3>
+                    <b>Temperatura ambiente</b>
+                    <div class="divider"></div>
+                    <h3>27.53 °C</h3>
                   </div>
                 </div>
               </div>
-              <div class="col l4 s12">
-                <div class="card z-depth-5">
-                  <div class="card-content">
-
-                  </div>
-                  <div class="card-action">
-                  </div>
-                </div>
-              </div>
-              <div class="col l4 s12">
-                <div class="card z-depth-5">
-                  <div class="card-content">
-
-                  </div>
-                  <div class="card-action">
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12">
-            <div class="row">
               <div class="col l8 s12">
-                <div class="card z-depth-5">
+                <div class="card z-depth-2 hoverable">
                   <div class="card-content" style="padding:0px">
                     <div id="map"></div>
                     <script>
@@ -117,61 +101,27 @@
                   </div>
                 </div>
               </div>
-              <div class="col l4 s12">
-                <div class="row">
-                  <div class="col s12">
-                    <div class="card z-depth-5">
-                      <div class="card-content">
-
-                      </div>
-                      <div class="card-action">
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col s12">
-                    <div class="card z-depth-5">
-                      <div class="card-content">
-
-                      </div>
-                      <div class="card-action">
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div class="col s12">
-            <div class="row">
-              <div class="col l4 s12">
-                <div class="card z-depth-5">
-                  <div class="card-content">
-
-                  </div>
-                  <div class="card-action">
-
-                  </div>
+            <div class="col l4 s12">
+              <div class="card z-depth-2 hoverable">
+                <div class="card-content" style="padding:0px">
+                  <canvas id="soil_humidity" width="400" height="400"></canvas>
                 </div>
               </div>
-              <div class="col l4 s12">
-                <div class="card z-depth-5">
-                  <div class="card-content">
-
-                  </div>
-                  <div class="card-action">
-                  </div>
+            </div>
+            <div class="col l4 s12">
+              <div class="card z-depth-2 hoverable">
+                <div class="card-content" style="padding:0px">
+                  <canvas id="air_humidity" width="400" height="400"></canvas>
                 </div>
               </div>
-              <div class="col l4 s12">
-                <div class="card z-depth-5">
-                  <div class="card-content">
-
-                  </div>
-                  <div class="card-action">
-
-                  </div>
+            </div>
+            <div class="col l4 s12">
+              <div class="card z-depth-2 hoverable">
+                <div class="card-content" style="padding:0px">
+                  <canvas id="air_temperature" width="400" height="400"></canvas>
                 </div>
               </div>
             </div>
@@ -179,7 +129,7 @@
         </div>
       </div>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer" style="background-color: #455A64">
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
@@ -203,10 +153,147 @@
     </footer>
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script>
       $(document).ready(function(){
         $(".button-collapse").sideNav();
       });
   </script>
+  <script>
+    var ctx = document.getElementById("soil_humidity").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [ "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00",
+                    "7:00", "8:00", "9:00","10:00","11:00","12:00","13:00",
+                   "14:00","15:00","16:00","17:00","18:00","19:00","20:00",
+                   "21:00","22:00","23:00","24:00"],
+            datasets: [{
+                  label: 'Umidade do solo',
+                data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3, 12],
+                backgroundColor: [
+                    'rgba(255, 152, 0, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 152, 0, 0.9)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+              yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Umidade (%)'
+                  },
+                  ticks: {
+                    beginAtZero:true
+                  }
+              }],
+                xAxes: [{
+                  scaleLabel: {
+                      display: true,
+                      labelString: 'Tempo (h)'
+                    },
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+            }
+        }
+    });
+    </script>
+    <script>
+      var ctx = document.getElementById("air_humidity").getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          xAxisID: 'Tempo (h)',
+          data: {
+            labels: [ "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00",
+                      "7:00", "8:00", "9:00","10:00","11:00","12:00","13:00",
+                     "14:00","15:00","16:00","17:00","18:00","19:00","20:00",
+                     "21:00","22:00","23:00","24:00"],
+              datasets: [{
+                  label: 'Umidade ambiente',
+                  data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3, 12],
+                  backgroundColor: [
+                      'rgba(255, 152, 0, 0.5)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 152, 0, 0.9)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Umidade (%)'
+                      },
+                      ticks: {
+                        beginAtZero:true
+                      }
+                  }],
+                  xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo (h)'
+                      },
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+              }
+          }
+      });
+      </script>
+      <script>
+        var ctx = document.getElementById("air_temperature").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [ "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00",
+                          "7:00", "8:00", "9:00","10:00","11:00","12:00","13:00",
+                         "14:00","15:00","16:00","17:00","18:00","19:00","20:00",
+                         "21:00","22:00","23:00","24:00"],
+                datasets: [{
+                    label: 'Temperatura ambiente',
+                    data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3, 12],
+                    backgroundColor: [
+                        'rgba(255, 152, 0, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 152, 0, 0.9)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'Temperatura (°C)'
+                        },
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }],
+                  xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo (h)'
+                      },
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+                }
+            }
+        });
+      </script>
   </body>
 </html>
