@@ -20,7 +20,7 @@
             <span href="#" class="brand-logo center"><b>Dashboard</b></span>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
               <li><img src="https://raw.githubusercontent.com/andreMarcosPerez/hackathon_AgriFutura/master/website/static/image/farmate_logo.png" style="height:25px;width:auto"></li>
-              <li><span style="margin-left:10px"><b>FarMate</b></span></li>
+              <li><span style="margin-left:10px"><b>FAR<span style="font-size: 18px">M</span>ATE</b></span></li>
             </ul>
           </div>
         </nav>
@@ -39,7 +39,7 @@
                         <b>Quantidade de água no solo</b>
                         <div class="divider"></div>
                         <div class="center">
-                            <h3 id="us1"></h3>
+                            <h3 id="us1" style="color:#00C853"></h3>
                         </div>
                       </div>
                     </div>
@@ -50,7 +50,7 @@
                         <b>Umidade relativa do ar</b>
                         <div class="divider"></div>
                         <div class="center">
-                            <h3 id="ua1"></h3>
+                            <h3 id="ua1" style="color:#00C853"></h3>
                         </div>
                       </div>
                     </div>
@@ -61,7 +61,7 @@
                         <b>Temperatura ambiente</b>
                         <div class="divider"></div>
                         <div class="center">
-                            <h3 id="ta1"></h3>
+                            <h3 id="ta1" style="color:#00C853"></h3>
                         </div>
                       </div>
                     </div>
@@ -92,10 +92,10 @@
                         ];
                         var areaA = new google.maps.Polygon({
                           paths: polygonA,
-                          strokeColor: '#FF0000',
+                          strokeColor: '#00C853',
                           strokeOpacity: 0.8,
                           strokeWeight: 2,
-                          fillColor: '#FF0000',
+                          fillColor: '#00C853',
                           fillOpacity: 0.35
                         });
                         areaA.setMap(map);
@@ -160,7 +160,7 @@
                     <b>Quantidade de água no solo</b>
                     <div class="divider"></div>
                     <div class="center">
-                        <h3 id="us2"></h3>
+                        <h3 id="us2" style="color:#FF9800"></h3>
                     </div>
                   </div>
                 </div>
@@ -171,7 +171,7 @@
                     <b>Umidade relativa do ar</b>
                     <div class="divider"></div>
                     <div class="center">
-                        <h3 id="ua2"></h3>
+                        <h3 id="ua2" style="color:#FF9800"></h3>
                     </div>
                   </div>
                 </div>
@@ -182,7 +182,7 @@
                     <b>Temperatura ambiente</b>
                     <div class="divider"></div>
                     <div class="center">
-                        <h3 id="ta2"></h3>
+                        <h3 id="ta2" style="color:#FF9800"></h3>
                     </div>
                   </div>
                 </div>
@@ -213,6 +213,97 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col s12 center">
+                <h3>Varejo</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l8 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" id="sidemap">
+                    <b>Recomendação para o plantio:</b>
+                    <div class="divider"></div>
+                    <div class="center">
+                        <h3 style="color:#00C853">QUIABO</h3>
+                    </div>
+                  </div>
+                  <div class="card-action">
+                    O preço de venda do <b><span style="color:#00C853">quiabo</span></b> no varejo esta subindo!
+                    Aproveite que as condições do seu <b><span style="color:#00C853">solo</span></b> e do <b><span style="color:#00C853">clima</span></b> estão <b><span style="color:#00C853">ideais</span></b> para o seu plantio.
+                    <div class="divider" style="margin:10px"></div>
+                    Tome cuidado com as seguintes restrições: A comercialização deve ser feita imediatamente após a colheita.
+                    <div class="divider" style="margin:10px"></div>
+                    Modo de plantio: Semeaduras ou mudas.
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <iframe
+                  width="auto"
+                  height="400"
+                  src="https://console.dialogflow.com/api-client/demo/embedded/9791250b-2108-4714-bc91-60a7e47f554e">
+              </iframe>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" id="sidemap">
+                    <b>Preço atual | Alface</b>
+                    <div class="divider"></div>
+                    <div class="center">
+                        <h3 style="color:#00C853">R$ 5.80</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" id="sidemap">
+                    <b>Preço atual | Abobrinha</b>
+                    <div class="divider"></div>
+                    <div class="center">
+                        <h3 style="color:#00C853">R$ 2.00</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" id="sidemap">
+                    <b>Preço atual | Quiabo</b>
+                    <div class="divider"></div>
+                    <div class="center">
+                        <h3 style="color:#00C853">R$ 4.58</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" style="padding:0px">
+                    <canvas id="price_a" width="400" height="400"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" style="padding:0px">
+                    <canvas id="price_b" width="400" height="400"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col l4 s12">
+                <div class="card z-depth-2 hoverable">
+                  <div class="card-content" style="padding:0px">
+                    <canvas id="price_c" width="400" height="400"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -230,7 +321,7 @@
           <div class="col l8 s12">
             <div class="container">
               <p class="grey-text text-lighten-4">
-                Nós da <b>FARMATE</b>  ajudamos você a tornar sua produção mais eficiente.
+                Nós da <b>FAR<span style="font-size: 18px">M</span>ATE</b> ajudamos você a tornar sua produção mais eficiente.
                 Com dados coletados em tempo real sobre mercado, qualidade do seu solo e clima, mostramos a hortaliça certa para cultivar.
                 Assim, você poupa tempo, lucra mais e evita desperdícios.
                 Ajude a tornar o mundo mais verde e venha inovar com a gente!
@@ -255,6 +346,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script type="text/javascript" src="static/javascript/sensor_a.js"></script>
     <script type="text/javascript" src="static/javascript/sensor_b.js"></script>
+    <script type="text/javascript" src="static/javascript/price.js"></script>
     <script>
       $(document).ready(function(){
         $(".button-collapse").sideNav();
@@ -272,7 +364,7 @@
       };
       firebase.initializeApp(config);
       var db = firebase.database();
-      db.ref("/zona1").on("value",function(snapshot) {
+      db.ref("/zona1").on("value", function(snapshot) {
         $('#ta1').text(snapshot.val().temperature + ' °C');
         $('#ua1').text(snapshot.val().humidity + ' %');
 
@@ -289,7 +381,7 @@
           $('#us1').text('molhado');
         }
       });
-      db.ref("/zona2").on("value",function(snapshot) {
+      db.ref("/zona2").on("value", function(snapshot) {
         $('#ta2').text(snapshot.val().temperature + ' °C');
         $('#ua2').text(snapshot.val().humidity + ' %');
 
